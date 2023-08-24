@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 - task: CopyFiles@2
   inputs:
-    Contents: './drop/Maven_test/target/*.war'
+    Contents: '**/*.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
