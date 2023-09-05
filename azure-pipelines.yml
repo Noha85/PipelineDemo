@@ -30,3 +30,12 @@ steps:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'warfile'
         publishLocation: 'Container'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Visual Studio Enterprise Subscription – MPN (86180291-45d5-4dda-8918-946b76cc206c)'
+    appType: 'webAppLinux'
+    WebAppName: 'AzureNewApp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
+        
+
