@@ -23,8 +23,10 @@ steps:
     goals: 'package'
 - task: CopyFiles@2
   inputs:
-    Contents: '**/*.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    Contents: |
+      **/*.war
+      **/*.jar
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
@@ -36,6 +38,6 @@ steps:
     azureSubscription: 'Visual Studio Enterprise Subscription – MPN (86180291-45d5-4dda-8918-946b76cc206c)'
     appType: 'webAppLinux'
     appName: 'AzureNewApp'
-    package: '**/*.war'
+    package: '$(Build.ArtifactStagingDirectory)/*.zip'
     runtimeStack: 'TOMCAT|8.5-jre8'
 
