@@ -37,4 +37,4 @@ steps:
     appType: 'webAppLinux'
     appName: 'AzureNewApp'
     package: '**/*.war'
-    runtimeStack: 'TOMCAT|8.5-jre8'
+    runtimeStack: 'TOMCAT|10-jre8'
