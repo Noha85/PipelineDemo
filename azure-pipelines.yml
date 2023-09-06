@@ -36,6 +36,6 @@ steps:
     azureSubscription: 'Visual Studio Enterprise Subscription – MPN (86180291-45d5-4dda-8918-946b76cc206c)'
     appType: 'webAppLinux'
     appName: 'AzureNewApp'
-    package: '$(Build.ArtifactStagingDirectory)/*.war'
+    package: '$(Build.ArtifactStagingDirectory)/warfile.war'
     runtimeStack: 'TOMCAT|8.5-jre8'
 
