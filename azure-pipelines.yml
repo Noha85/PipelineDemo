@@ -13,7 +13,7 @@ pool:
 steps:
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: 'Maven_test/pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
@@ -36,5 +36,5 @@ steps:
     azureSubscription: 'Visual Studio Enterprise Subscription – MPN (86180291-45d5-4dda-8918-946b76cc206c)'
     appType: 'webAppLinux'
     appName: 'AzureNewApp'
-    package: '${Build.ArtifactStagingDirectory)/warfile/target/*.war'
+    package: '**/*.war'
     runtimeStack: 'TOMCAT|8.5-jre8'
