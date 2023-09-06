@@ -21,23 +21,20 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-# - task: CopyFiles@2
-#   inputs:
-#     SourceFolder: '$(System.DefaultWorkingDirectory)'
-#     Contents: |
-#       **/*.war
-#       **/*.jar
-#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#         ArtifactName: 'warfile'
-#         publishLocation: 'Container'
+- task: CopyFiles@2
+  inputs:
+    Contents: '**/*.war'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'warfile'
+        publishLocation: 'Container'
 
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Visual Studio Enterprise Subscription – MPN (86180291-45d5-4dda-8918-946b76cc206c)'
     appType: 'webAppLinux'
     appName: 'AzureNewApp'
-    package: '$(System.DefaultWorkingDirectory/**/target/*.?(war|jar)'
+    package: '${Build.ArtifactStagingDirectory)/warfile/target/*.war'
     runtimeStack: 'TOMCAT|8.5-jre8'
