@@ -40,3 +40,6 @@ steps:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'warfile'
         publishLocation: 'Container'
+- task: CmdLine@2
+  inputs:
+    script: 'cd C:\agent\_work\r1\a\_Noha85.PipelineDemo\warfile\Maven_test\target  copy maven_test.war D:\Local\Testing\Udemy courses\Azure Devops Fundamentals for Testers -CICD+Project Boards\apache-tomcat-9.0.71-windows-x64\apache-tomcat-9.0.71\webapps'
